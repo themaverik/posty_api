@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rack', '~> 1.5.2'
 gem 'rake', '~> 10.3.2'
+gem 'thin', '~> 1.7.1'
 gem 'grape', '~> 0.7.0'
 gem 'activerecord', '~> 3.2.22', require: 'active_record'
 gem 'json'

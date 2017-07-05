@@ -1,3 +1,5 @@
+This is a fork from [posty_api](https://github.com/posty/posty_api). In order to use the API over https for apps using rails version < 3, we will use [thin](https://github.com/macournoyer/thin/tree/v1.7.1) server with SSL enabled instead of the default WEBrick server. The installation has been tested using rails version 2.3.0 installed using rvm and thin server version 1.7.1.
+
 #posty\_API
 [![Build Status](https://travis-ci.org/posty/posty_api.svg?branch=master)](https://travis-ci.org/posty/posty_api)
 
@@ -18,7 +20,13 @@ Tested with ruby 2.1.8, 2.2.4, 2.3.0
 5.  Run ``bundle install --with mysql`` for MySQL or ``bundle install --with postgresql`` for PostgreSQL
 6.  Run ``rake db:migrate``
 7.  Run ``rake api_key:generate``
-8.  Start the application e.g. with ``rackup``
+8.  Set up your SSL Certificates, and start your application. Run
+
+    ``thin --ssl --ssl-key-file /path/to/key/key.pem --ssl-cert-file /path/to/certificate/server.pem``
+
+    To run as a daemon process on port 9292
+
+    ``thin -d -p 9292 --ssl --ssl-key-file /path/to/key/key.pem --ssl-cert-file /path/to/certificate/server.pem``
 
 Notice: Check your RACK_ENV if any problems occur.
 
